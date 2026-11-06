@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<link rel="icon" type="image/jpeg" href="favicon.jpeg"/>
+<link rel="icon" type="image/jpeg" href="../favicon.jpeg"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AVTOMATA – Home Automation &amp; Security</title>
 <style>
@@ -11,31 +11,31 @@
 /* ===== Fontes locais ===== */
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2.ttf") format("truetype");
+  src: url("../fonts/Justv2.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2i.ttf") format("truetype");
+  src: url("../fonts/Justv2i.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22.ttf") format("truetype");
+  src: url("../fonts/Justv22.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22i.ttf") format("truetype");
+  src: url("../fonts/Justv22i.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Roboto Condensed Thin";
-  src: url("fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+  src: url("../fonts/Roboto_Condensed-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
@@ -70,11 +70,19 @@
     }
 
     body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
       font-family: var(--font-sans);
       background: var(--color-bg);
       color: var(--color-graphite);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1 0 auto;
     }
 
     img {
@@ -734,6 +742,7 @@
        ================================ */
 
     footer {
+      flex-shrink: 0;
       margin-top: 3rem;
       padding: 1.8rem 0 2.2rem;
       background: #111316;
@@ -979,24 +988,24 @@ header .logo-text-sub{
 <div class="container">
 <nav class="nav" id="main-nav">
 <div class="nav-left">
-<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="img/logo.png"/></div>
+<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="../img/logo.png"/></div>
 <div>
 <div class="logo-text-main">AVTOMATA</div>
 <div class="logo-text-sub">HOME AUTOMATION &amp; SECURITY</div>
 </div>
 </div>
 <div class="nav-center">
-<a href="evolucao.html">Evolução</a>
-<a href="quem-somos.html">Quem somos</a>
-<a href="solucoes.html">Soluções</a>
-<a href="parceiros.html">Parceiros</a>
-<a href="beneficios.html">Benefícios</a>
-<a href="diferencial.html">Diferencial</a>
-<a href="index.html#contato">Fale Conosco</a>
+<a href="../evolucao/">Evolução</a>
+<a href="../quem-somos/">Quem somos</a>
+<a href="../solucoes/">Soluções</a>
+<a href="../parceiros/">Parceiros</a>
+<a href="../beneficios/">Benefícios</a>
+<a href="../diferencial/">Diferencial</a>
+<a href="../#contato">Fale Conosco</a>
 </div>
 <div class="nav-right">
 <div class="nav-cta">
-<a class="btn btn-primary" href="index.html#contato">Solicitar projeto</a>
+<a class="btn btn-primary" href="../#contato">Solicitar projeto</a>
 </div>
 </div>
 <button aria-label="Abrir menu" class="nav-toggle" id="nav-toggle">
@@ -1015,6 +1024,125 @@ header .logo-text-sub{
 <!-- ================================
          QUEM SOMOS
          ================================ -->
+<section class="section" id="quem-somos">
+<div class="container">
+<div class="section-header">
+<div class="section-kicker" data-lang="pt">Quem somos</div>
+<div class="section-kicker" data-lang="en" style="display:none;">Who we are</div>
+<div class="section-kicker" data-lang="es" style="display:none;">Quiénes somos</div>
+<h2 class="section-title">
+<span data-lang="pt">
+          Mais de 20 anos de experiência combinada em automação e segurança.
+        </span>
+<span data-lang="en" style="display:none;">
+          Over 20 years of combined experience in automation and security.
+        </span>
+<span data-lang="es" style="display:none;">
+          Más de 20 años de experiencia combinada en automatización y seguridad.
+        </span>
+</h2>
+<p class="section-subtitle">
+<span data-lang="pt">
+          Nossa equipe reúne especialistas em automação residencial, segurança eletrônica, arquitetura e TI,
+          atuando lado a lado com arquitetos e engenheiros desde o primeiro traço do projeto.
+        </span>
+<span data-lang="en" style="display:none;">
+          Our team brings together specialists in home automation, electronic security, architecture and IT,
+          working side by side with architects and engineers from the earliest project stages.
+        </span>
+<span data-lang="es" style="display:none;">
+          Nuestro equipo reúne especialistas en automatización residencial, seguridad electrónica,
+          arquitectura y TI, trabajando junto a arquitectos e ingenieros desde las primeras etapas del proyecto.
+        </span>
+</p>
+</div>
+<div class="grid" style="grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem;">
+<!-- Bloco esquerdo -->
+<div>
+<p data-lang="pt" style="margin-bottom: 0.9rem; color:#4e5155; font-size:0.96rem;">
+          Entendemos que cada casa é única. Por isso, nossos projetos são personalizados, levando em conta
+          o estilo de vida dos moradores, a arquitetura do imóvel e o nível de automação desejado.
+        </p>
+<p data-lang="en" style="display:none;">
+          We understand that every home is unique. That’s why our projects are customized to reflect each client’s lifestyle,
+          architectural layout and level of desired automation.
+        </p>
+<p data-lang="es" style="display:none;">
+          Entendemos que cada hogar es único. Por eso, nuestros proyectos son personalizados y tienen en cuenta
+          el estilo de vida, la arquitectura y el nivel de automatización deseado.
+        </p>
+<p data-lang="pt" style="margin-bottom: 0.9rem; color:#4e5155; font-size:0.96rem;">
+          Nosso compromisso é entregar uma experiência fluida: estudos técnicos, projeto em CAD/BIM,
+          instalação, programação fina das cenas e suporte pós-entrega.
+        </p>
+<p data-lang="en" style="display:none;">
+          Our commitment is to deliver a seamless experience: technical studies, CAD/BIM design,
+          installation, scene programming and dedicated post-delivery support.
+        </p>
+<p data-lang="es" style="display:none;">
+          Nuestro compromiso es ofrecer una experiencia fluida: estudios técnicos, proyecto CAD/BIM,
+          instalación, programación de escenas y soporte posterior.
+        </p>
+<p data-lang="pt" style="color:#4e5155; font-size:0.96rem;">
+          O resultado é um lar realmente inteligente, controlado com naturalidade – sem complicação.
+        </p>
+<p data-lang="en" style="display:none;">
+          The result is a truly smart home, controlled naturally — without complications.
+        </p>
+<p data-lang="es" style="display:none;">
+          El resultado es un hogar realmente inteligente, controlado de forma natural — sin complicaciones.
+        </p>
+</div>
+<!-- Bloco direito -->
+<div>
+<div class="form-card" style="padding:1.3rem 1.4rem;">
+<h3 data-lang="pt" style="margin-bottom:0.6rem; font-size:1rem;">Atuação</h3>
+<h3 data-lang="en" style="margin-bottom:0.6rem; font-size:1rem; display:none;">Scope</h3>
+<h3 data-lang="es" style="margin-bottom:0.6rem; font-size:1rem; display:none;">Actuación</h3>
+<p data-lang="pt" style="font-size:0.88rem; color:#585b60; margin-bottom:0.8rem;">
+            • Residências de alto padrão<br/>
+            • Casas e coberturas em condomínio<br/>
+            • Retrofit de sistemas existentes<br/>
+            • Parceria com arquitetos e engenheiros
+          </p>
+<p data-lang="en" style="font-size:0.88rem; color:#585b60; margin-bottom:0.8rem; display:none;">
+            • High-end residences<br/>
+            • Houses and penthouses in gated communities<br/>
+            • Retrofit of existing systems<br/>
+            • Collaboration with architects and engineers
+          </p>
+<p data-lang="es" style="font-size:0.88rem; color:#585b60; margin-bottom:0.8rem; display:none;">
+            • Residencias de alto nivel<br/>
+            • Casas y áticos en condominios<br/>
+            • Actualización de sistemas existentes<br/>
+            • Colaboración con arquitectos e ingenieros
+          </p>
+<h3 data-lang="pt" style="margin-bottom:0.4rem; font-size:1rem;">Como trabalhamos</h3>
+<h3 data-lang="en" style="margin-bottom:0.4rem; font-size:1rem; display:none;">How we work</h3>
+<h3 data-lang="es" style="margin-bottom:0.4rem; font-size:1rem; display:none;">Cómo trabajamos</h3>
+<p data-lang="pt" style="font-size:0.88rem; color:#585b60;">
+            • Briefing técnico e funcional<br/>
+            • Projeto em CAD/BIM<br/>
+            • Instalação e programação<br/>
+            • Entrega assistida e suporte
+          </p>
+<p data-lang="en" style="font-size:0.88rem; color:#585b60; display:none;">
+            • Technical and functional briefing<br/>
+            • CAD/BIM project design<br/>
+            • Installation and programming<br/>
+            • Assisted delivery and support
+          </p>
+<p data-lang="es" style="font-size:0.88rem; color:#585b60; display:none;">
+            • Briefing técnico y funcional<br/>
+            • Proyecto en CAD/BIM<br/>
+            • Instalación y programación<br/>
+            • Entrega asistida y soporte
+          </p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- ================================
          SOLUÇÕES
          ================================ -->
@@ -1024,102 +1152,6 @@ header .logo-text-sub{
 <!-- ================================
          BENEFÍCIOS
          ================================ -->
-<section class="section" id="beneficios">
-<div class="container">
-<div class="section-header">
-<div class="section-kicker" data-lang="pt">Benefícios</div>
-<div class="section-kicker" data-lang="en" style="display:none;">Benefits</div>
-<div class="section-kicker" data-lang="es" style="display:none;">Beneficios</div>
-<h2 class="section-title">
-<span data-lang="pt">
-          Mais conforto, mais segurança, mais valor para o seu imóvel.
-        </span>
-<span data-lang="en" style="display:none;">
-          More comfort, more security, more value for your property.
-        </span>
-<span data-lang="es" style="display:none;">
-          Más confort, más seguridad, más valor para tu propiedad.
-        </span>
-</h2>
-<p class="section-subtitle">
-<span data-lang="pt">
-          A automação bem planejada transforma o dia a dia, simplifica rotinas e aumenta o valor
-          percebido e real da sua residência.
-        </span>
-<span data-lang="en" style="display:none;">
-          Well-planned automation transforms daily life, simplifies routines and increases both the perceived
-          and real value of your home.
-        </span>
-<span data-lang="es" style="display:none;">
-          Una automatización bien planificada transforma el día a día, simplifica las rutinas y aumenta
-          el valor percibido y real de tu vivienda.
-        </span>
-</p>
-</div>
-<div class="benefits-grid">
-<!-- 1. Facilidade de operação -->
-<div class="benefit-card">
-<div class="benefit-title" data-lang="pt">Facilidade de operação</div>
-<div class="benefit-title" data-lang="en" style="display:none;">Ease of use</div>
-<div class="benefit-title" data-lang="es" style="display:none;">Facilidad de uso</div>
-<div class="benefit-desc" data-lang="pt">
-          Tudo centralizado em um único app, comandos por voz e cenas programadas para diferentes momentos.
-        </div>
-<div class="benefit-desc" data-lang="en" style="display:none;">
-          Everything is centralized in a single app, with voice commands and programmed scenes for different moments.
-        </div>
-<div class="benefit-desc" data-lang="es" style="display:none;">
-          Todo centralizado en una sola app, con comandos de voz y escenas programadas para distintos momentos.
-        </div>
-</div>
-<!-- 2. Economia de energia -->
-<div class="benefit-card">
-<div class="benefit-title" data-lang="pt">Economia de energia</div>
-<div class="benefit-title" data-lang="en" style="display:none;">Energy savings</div>
-<div class="benefit-title" data-lang="es" style="display:none;">Ahorro de energía</div>
-<div class="benefit-desc" data-lang="pt">
-          Iluminação, climatização e equipamentos funcionam apenas quando necessário, com automações inteligentes.
-        </div>
-<div class="benefit-desc" data-lang="en" style="display:none;">
-          Lighting, climate systems and equipment operate only when needed, thanks to smart automations.
-        </div>
-<div class="benefit-desc" data-lang="es" style="display:none;">
-          La iluminación, la climatización y los equipos funcionan solo cuando es necesario, gracias a automatizaciones inteligentes.
-        </div>
-</div>
-<!-- 3. Monitoramento online -->
-<div class="benefit-card">
-<div class="benefit-title" data-lang="pt">Monitoramento online</div>
-<div class="benefit-title" data-lang="en" style="display:none;">Online monitoring</div>
-<div class="benefit-title" data-lang="es" style="display:none;">Monitoreo en línea</div>
-<div class="benefit-desc" data-lang="pt">
-          Acompanhe sua casa de qualquer lugar do mundo, em tempo real, com alertas e históricos de eventos.
-        </div>
-<div class="benefit-desc" data-lang="en" style="display:none;">
-          Monitor your home from anywhere in the world, in real time, with alerts and event history.
-        </div>
-<div class="benefit-desc" data-lang="es" style="display:none;">
-          Supervisa tu hogar desde cualquier lugar del mundo, en tiempo real, con alertas e histórico de eventos.
-        </div>
-</div>
-<!-- 4. Valorização do imóvel -->
-<div class="benefit-card">
-<div class="benefit-title" data-lang="pt">Valorização do imóvel</div>
-<div class="benefit-title" data-lang="en" style="display:none;">Property value appreciation</div>
-<div class="benefit-title" data-lang="es" style="display:none;">Valorización de la propiedad</div>
-<div class="benefit-desc" data-lang="pt">
-          Um projeto de automação bem executado torna o imóvel mais desejado e competitivo no mercado.
-        </div>
-<div class="benefit-desc" data-lang="en" style="display:none;">
-          A well-executed automation project makes your property more desirable and more competitive on the market.
-        </div>
-<div class="benefit-desc" data-lang="es" style="display:none;">
-          Un proyecto de automatización bien ejecutado hace que la propiedad sea más deseable y competitiva en el mercado.
-        </div>
-</div>
-</div>
-</div>
-</section>
 <!-- ================================
          DIFERENCIAL
          ================================ -->
@@ -1136,9 +1168,9 @@ header .logo-text-sub{
 <!-- Estrutura de idioma já pronta; por padrão PT ativo.
                  Para ativar EN/ES você pode usar um pequeno script
                  e duplicar o conteúdo com data-lang="en"/"es". -->
-<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="img/flag-br.png"/></button>
-<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="img/flag-uk.png"/></button>
-<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="img/flag-es.png"/></button>
+<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="../img/flag-br.png"/></button>
+<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="../img/flag-uk.png"/></button>
+<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="../img/flag-es.png"/></button>
 </div>
 <!-- Texto de direitos -->
 <div>
@@ -1149,17 +1181,17 @@ header .logo-text-sub{
 <!-- Links -->
 <div class="footer-links">
 <!-- Início / Home -->
-<a data-lang="pt" href="index.html#inicio">Início</a>
-<a data-lang="en" href="index.html#inicio" style="display:none;">Home</a>
-<a data-lang="es" href="index.html#inicio" style="display:none;">Inicio</a>
+<a data-lang="pt" href="../#inicio">Início</a>
+<a data-lang="en" href="../#inicio" style="display:none;">Home</a>
+<a data-lang="es" href="../#inicio" style="display:none;">Inicio</a>
 <!-- Soluções / Solutions -->
-<a data-lang="pt" href="solucoes.html">Soluções</a>
-<a data-lang="en" href="solucoes.html" style="display:none;">Solutions</a>
-<a data-lang="es" href="solucoes.html" style="display:none;">Soluciones</a>
+<a data-lang="pt" href="../solucoes/">Soluções</a>
+<a data-lang="en" href="../solucoes/" style="display:none;">Solutions</a>
+<a data-lang="es" href="../solucoes/" style="display:none;">Soluciones</a>
 <!-- Contato / Contact -->
-<a data-lang="pt" href="index.html#contato">Contato</a>
-<a data-lang="en" href="index.html#contato" style="display:none;">Contact</a>
-<a data-lang="es" href="index.html#contato" style="display:none;">Contacto</a>
+<a data-lang="pt" href="../#contato">Contato</a>
+<a data-lang="en" href="../#contato" style="display:none;">Contact</a>
+<a data-lang="es" href="../#contato" style="display:none;">Contacto</a>
 <!-- Política de privacidade / Privacy policy -->
 <a data-lang="pt" href="#">Política de privacidade</a>
 <a data-lang="en" href="#" style="display:none;">Privacy policy</a>
@@ -1176,7 +1208,8 @@ header .logo-text-sub{
 </footer>
 <script>
   // Ano no footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
   // Toggle mobile nav
   const nav = document.getElementById("main-nav");
@@ -1187,7 +1220,7 @@ header .logo-text-sub{
 
   // Switch de idioma
   const langButtons = document.querySelectorAll(".lang-btn");
-  const langBlocks = document.querySelectorAll("[data-lang]");
+  const langBlocks = document.querySelectorAll("[data-lang]:not(.lang-btn)");
 
   langButtons.forEach((btn) => {
     btn.addEventListener("click", () => {

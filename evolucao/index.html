@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<link rel="icon" type="image/jpeg" href="favicon.jpeg"/>
+<link rel="icon" type="image/jpeg" href="../favicon.jpeg"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AVTOMATA – Home Automation &amp; Security</title>
 <style>
@@ -11,31 +11,31 @@
 /* ===== Fontes locais ===== */
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2.ttf") format("truetype");
+  src: url("../fonts/Justv2.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2i.ttf") format("truetype");
+  src: url("../fonts/Justv2i.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22.ttf") format("truetype");
+  src: url("../fonts/Justv22.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22i.ttf") format("truetype");
+  src: url("../fonts/Justv22i.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Roboto Condensed Thin";
-  src: url("fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+  src: url("../fonts/Roboto_Condensed-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
@@ -70,11 +70,19 @@
     }
 
     body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
       font-family: var(--font-sans);
       background: var(--color-bg);
       color: var(--color-graphite);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1 0 auto;
     }
 
     img {
@@ -734,6 +742,7 @@
        ================================ */
 
     footer {
+      flex-shrink: 0;
       margin-top: 3rem;
       padding: 1.8rem 0 2.2rem;
       background: #111316;
@@ -969,13 +978,6 @@ header .logo-text-sub{
   font-weight: 700 !important;
 }
 
-
-/* ===== DIFERENCIAL: section-kicker com contraste ===== */
-#diferencial .section-kicker{
-  color: #ffffff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
-}
-
 </style>
 </head>
 <body>
@@ -986,24 +988,24 @@ header .logo-text-sub{
 <div class="container">
 <nav class="nav" id="main-nav">
 <div class="nav-left">
-<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="img/logo.png"/></div>
+<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="../img/logo.png"/></div>
 <div>
 <div class="logo-text-main">AVTOMATA</div>
 <div class="logo-text-sub">HOME AUTOMATION &amp; SECURITY</div>
 </div>
 </div>
 <div class="nav-center">
-<a href="evolucao.html">Evolução</a>
-<a href="quem-somos.html">Quem somos</a>
-<a href="solucoes.html">Soluções</a>
-<a href="parceiros.html">Parceiros</a>
-<a href="beneficios.html">Benefícios</a>
-<a href="diferencial.html">Diferencial</a>
-<a href="index.html#contato">Fale Conosco</a>
+<a href="../evolucao/">Evolução</a>
+<a href="../quem-somos/">Quem somos</a>
+<a href="../solucoes/">Soluções</a>
+<a href="../parceiros/">Parceiros</a>
+<a href="../beneficios/">Benefícios</a>
+<a href="../diferencial/">Diferencial</a>
+<a href="../#contato">Fale Conosco</a>
 </div>
 <div class="nav-right">
 <div class="nav-cta">
-<a class="btn btn-primary" href="index.html#contato">Solicitar projeto</a>
+<a class="btn btn-primary" href="../#contato">Solicitar projeto</a>
 </div>
 </div>
 <button aria-label="Abrir menu" class="nav-toggle" id="nav-toggle">
@@ -1019,6 +1021,126 @@ header .logo-text-sub{
 <!-- ================================
          EVOLUÇÃO
          ================================ -->
+<section class="section" id="evolucao">
+<div class="container">
+<div class="section-header">
+<div class="section-kicker" data-lang="pt">Evolução</div>
+<div class="section-kicker" data-lang="en" style="display:none;">Evolution</div>
+<div class="section-kicker" data-lang="es" style="display:none;">Evolución</div>
+<h2 class="section-title">
+<span data-lang="pt">Da casa manual à casa verdadeiramente inteligente.</span>
+<span data-lang="en" style="display:none;">From manual home to truly smart home.</span>
+<span data-lang="es" style="display:none;">De la casa manual al hogar realmente inteligente.</span>
+</h2>
+<p class="section-subtitle">
+<span data-lang="pt">
+          Em poucos anos, a automação residencial deixou de ser um conjunto de dispositivos isolados
+          para se tornar um sistema integrado, acessível e simples de operar.
+        </span>
+<span data-lang="en" style="display:none;">
+          In just a few years, home automation has evolved from a set of isolated devices
+          into an integrated, accessible and easy-to-use system.
+        </span>
+<span data-lang="es" style="display:none;">
+          En pocos años, la automatización residencial ha pasado de ser un conjunto de dispositivos aislados
+          a convertirse en un sistema integrado, accesible y fácil de usar.
+        </span>
+</p>
+</div>
+<div class="timeline">
+<!-- Texto à esquerda -->
+<div class="timeline-text">
+<p data-lang="pt">
+          No início, controlar a casa significava lidar com interruptores, timers e soluções pontuais.
+          Com o avanço da internet das coisas (IoT) e dos assistentes de voz, surgiram inúmeras possibilidades –
+          mas também a complexidade de gerenciar diversos aplicativos e sistemas que não se conversam.
+        </p>
+<p data-lang="en" style="display:none;">
+          In the beginning, controlling a home meant dealing with switches, timers and isolated solutions.
+          With the rise of the Internet of Things (IoT) and voice assistants, countless possibilities appeared —
+          but also the complexity of managing many apps and systems that don’t talk to each other.
+        </p>
+<p data-lang="es" style="display:none;">
+          Al principio, controlar la casa significaba manejar interruptores, temporizadores y soluciones puntuales.
+          Con el avance del Internet de las Cosas (IoT) y los asistentes de voz, surgieron innumerables posibilidades,
+          pero también la complejidad de gestionar muchas apps y sistemas que no se comunican entre sí.
+        </p>
+<p data-lang="pt">
+          A AVTOMATA nasce para simplificar esse cenário: uma camada de inteligência que integra segurança,
+          iluminação, climatização, áudio, irrigação e muito mais em um único projeto, sob medida para cada residência.
+        </p>
+<p data-lang="en" style="display:none;">
+          AVTOMATA was created to simplify this landscape: an intelligence layer that integrates security,
+          lighting, climate, audio, irrigation and much more into a single project, tailored to each home.
+        </p>
+<p data-lang="es" style="display:none;">
+          AVTOMATA nace para simplificar este escenario: una capa de inteligencia que integra seguridad,
+          iluminación, climatización, audio, riego y mucho más en un solo proyecto, adaptado a cada vivienda.
+        </p>
+<p data-lang="pt">
+          O resultado é uma casa que responde automaticamente aos hábitos dos moradores, aumenta o conforto,
+          reduz o consumo de energia e eleva o padrão de segurança – sem exigir esforço no dia a dia.
+        </p>
+<p data-lang="en" style="display:none;">
+          The result is a home that automatically responds to the residents’ habits, increases comfort,
+          reduces energy consumption and raises security standards — without extra effort in daily life.
+        </p>
+<p data-lang="es" style="display:none;">
+          El resultado es un hogar que responde automáticamente a los hábitos de los residentes, incrementa el confort,
+          reduce el consumo de energía y eleva el nivel de seguridad, sin exigir esfuerzo en la rutina diaria.
+        </p>
+</div>
+<!-- Itens da linha do tempo -->
+<div class="timeline-items">
+<div class="timeline-item">
+<h4 data-lang="pt">Antes</h4>
+<h4 data-lang="en" style="display:none;">Before</h4>
+<h4 data-lang="es" style="display:none;">Antes</h4>
+<p data-lang="pt">
+            Vários controles, vários apps, pouca integração e pouca visibilidade em tempo real.
+          </p>
+<p data-lang="en" style="display:none;">
+            Many remotes, many apps, little integration and almost no real-time visibility.
+          </p>
+<p data-lang="es" style="display:none;">
+            Muchos mandos, muchas apps, poca integración y casi ninguna visibilidad en tiempo real.
+          </p>
+</div>
+<div class="timeline-item">
+<h4 data-lang="pt">Agora</h4>
+<h4 data-lang="en" style="display:none;">Now</h4>
+<h4 data-lang="es" style="display:none;">Ahora</h4>
+<p data-lang="pt">
+            Automação centralizada, controle por voz, cenas inteligentes e monitoramento remoto seguro.
+          </p>
+<p data-lang="en" style="display:none;">
+            Centralized automation, voice control, smart scenes and secure remote monitoring.
+          </p>
+<p data-lang="es" style="display:none;">
+            Automatización centralizada, control por voz, escenas inteligentes y monitoreo remoto seguro.
+          </p>
+</div>
+<div class="timeline-item">
+<h4 data-lang="pt">Próximos passos</h4>
+<h4 data-lang="en" style="display:none;">Next steps</h4>
+<h4 data-lang="es" style="display:none;">Próximos pasos</h4>
+<p data-lang="pt">
+            Integração cada vez maior entre automação, inteligência artificial, eficiência energética
+            e segurança proativa.
+          </p>
+<p data-lang="en" style="display:none;">
+            Increasing integration between automation, artificial intelligence, energy efficiency
+            and proactive security.
+          </p>
+<p data-lang="es" style="display:none;">
+            Mayor integración entre automatización, inteligencia artificial, eficiencia energética
+            y seguridad proactiva.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- ================================
          QUEM SOMOS
          ================================ -->
@@ -1034,90 +1156,6 @@ header .logo-text-sub{
 <!-- ================================
          DIFERENCIAL
          ================================ -->
-<section class="section" id="diferencial">
-<div class="container">
-<div class="differential">
-<div>
-<div class="section-kicker" data-lang="pt" style="color:#f2d9a2;">Diferencial AVTOMATA</div>
-<div class="section-kicker" data-lang="en" style="color:#f2d9a2; display:none;">AVTOMATA advantage</div>
-<div class="section-kicker" data-lang="es" style="color:#f2d9a2; display:none;">Diferencial AVTOMATA</div>
-<h3 data-lang="pt">Projetos em CAD &amp; BIM, do conceito à entrega.</h3>
-<h3 data-lang="en" style="display:none;">CAD &amp; BIM projects, from concept to delivery.</h3>
-<h3 data-lang="es" style="display:none;">Proyectos en CAD y BIM, del concepto a la entrega.</h3>
-<p data-lang="pt">
-          Não trabalhamos com “encaixar equipamentos” na obra pronta. Atuamos desde o início do projeto,
-          em parceria com arquitetos e engenheiros, para que a automação faça parte da essência da residência.
-        </p>
-<p data-lang="en" style="display:none;">
-          We don’t simply “fit equipment” into a finished project. We work from the very beginning,
-          in partnership with architects and engineers, so that automation becomes part of the home’s core design.
-        </p>
-<p data-lang="es" style="display:none;">
-          No trabajamos solo “encajando equipos” en la obra terminada. Actuamos desde el inicio del proyecto,
-          en colaboración con arquitectos e ingenieros, para que la automatización forme parte de la esencia de la vivienda.
-        </p>
-<ul class="differential-list">
-<li data-lang="pt">Planta técnica com pontos de automação detalhados</li>
-<li data-lang="en" style="display:none;">Technical drawings with detailed automation points</li>
-<li data-lang="es" style="display:none;">Planos técnicos con puntos de automatización detallados</li>
-<li data-lang="pt">Compatibilização com projetos elétricos e luminotécnicos</li>
-<li data-lang="en" style="display:none;">Coordination with electrical and lighting projects</li>
-<li data-lang="es" style="display:none;">Compatibilización con proyectos eléctricos y de iluminación</li>
-<li data-lang="pt">Simulação de cenas e rotinas antes da instalação</li>
-<li data-lang="en" style="display:none;">Simulation of scenes and routines before installation</li>
-<li data-lang="es" style="display:none;">Simulación de escenas y rutinas antes de la instalación</li>
-<li data-lang="pt">Acompanhamento em campo durante a execução da obra</li>
-<li data-lang="en" style="display:none;">On-site supervision during construction</li>
-<li data-lang="es" style="display:none;">Acompañamiento en obra durante la ejecución</li>
-<li data-lang="pt">Documentação final para manutenção e futuros upgrades</li>
-<li data-lang="en" style="display:none;">Final documentation for maintenance and future upgrades</li>
-<li data-lang="es" style="display:none;">Documentación final para mantenimiento y futuras ampliaciones</li>
-</ul>
-<a class="btn btn-outline" data-lang="pt" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2;">
-          Agendar conversa técnica
-        </a>
-<a class="btn btn-outline" data-lang="en" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2; display:none;">
-          Schedule a technical call
-        </a>
-<a class="btn btn-outline" data-lang="es" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2; display:none;">
-          Agendar conversación técnica
-        </a>
-</div>
-<div class="differential-side">
-<p data-lang="pt" style="margin-bottom:0.6rem;">
-<strong>Para arquitetos e engenheiros</strong><br/>
-          Somos parceiros na concepção de projetos diferenciados, trazendo soluções de automação que
-          valorizam o conceito arquitetônico, sem comprometer estética ou prazos.
-        </p>
-<p data-lang="en" style="margin-bottom:0.6rem; display:none;">
-<strong>For architects and engineers</strong><br/>
-          We are partners in the creation of distinctive projects, bringing automation solutions that
-          enhance the architectural concept without compromising aesthetics or deadlines.
-        </p>
-<p data-lang="es" style="margin-bottom:0.6rem; display:none;">
-<strong>Para arquitectos e ingenieros</strong><br/>
-          Somos socios en la concepción de proyectos diferenciados, aportando soluciones de automatización
-          que valorizan el concepto arquitectónico sin comprometer la estética ni los plazos.
-        </p>
-<p data-lang="pt">
-<strong>Para proprietários</strong><br/>
-          Entregamos uma casa que responde ao seu estilo de vida, com tecnologia que trabalha em silêncio,
-          24 horas por dia, para garantir conforto, segurança e eficiência.
-        </p>
-<p data-lang="en" style="display:none;">
-<strong>For homeowners</strong><br/>
-          We deliver a home that responds to your lifestyle, with technology that works quietly
-          24 hours a day to ensure comfort, security and efficiency.
-        </p>
-<p data-lang="es" style="display:none;">
-<strong>Para propietarios</strong><br/>
-          Entregamos un hogar que responde a tu estilo de vida, con tecnología que trabaja en silencio
-          las 24 horas para garantizar confort, seguridad y eficiencia.
-        </p>
-</div>
-</div>
-</div>
-</section>
 <!-- ================================
          FALE CONOSCO
          ================================ -->
@@ -1131,9 +1169,9 @@ header .logo-text-sub{
 <!-- Estrutura de idioma já pronta; por padrão PT ativo.
                  Para ativar EN/ES você pode usar um pequeno script
                  e duplicar o conteúdo com data-lang="en"/"es". -->
-<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="img/flag-br.png"/></button>
-<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="img/flag-uk.png"/></button>
-<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="img/flag-es.png"/></button>
+<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="../img/flag-br.png"/></button>
+<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="../img/flag-uk.png"/></button>
+<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="../img/flag-es.png"/></button>
 </div>
 <!-- Texto de direitos -->
 <div>
@@ -1144,17 +1182,17 @@ header .logo-text-sub{
 <!-- Links -->
 <div class="footer-links">
 <!-- Início / Home -->
-<a data-lang="pt" href="index.html#inicio">Início</a>
-<a data-lang="en" href="index.html#inicio" style="display:none;">Home</a>
-<a data-lang="es" href="index.html#inicio" style="display:none;">Inicio</a>
+<a data-lang="pt" href="../#inicio">Início</a>
+<a data-lang="en" href="../#inicio" style="display:none;">Home</a>
+<a data-lang="es" href="../#inicio" style="display:none;">Inicio</a>
 <!-- Soluções / Solutions -->
-<a data-lang="pt" href="solucoes.html">Soluções</a>
-<a data-lang="en" href="solucoes.html" style="display:none;">Solutions</a>
-<a data-lang="es" href="solucoes.html" style="display:none;">Soluciones</a>
+<a data-lang="pt" href="../solucoes/">Soluções</a>
+<a data-lang="en" href="../solucoes/" style="display:none;">Solutions</a>
+<a data-lang="es" href="../solucoes/" style="display:none;">Soluciones</a>
 <!-- Contato / Contact -->
-<a data-lang="pt" href="index.html#contato">Contato</a>
-<a data-lang="en" href="index.html#contato" style="display:none;">Contact</a>
-<a data-lang="es" href="index.html#contato" style="display:none;">Contacto</a>
+<a data-lang="pt" href="../#contato">Contato</a>
+<a data-lang="en" href="../#contato" style="display:none;">Contact</a>
+<a data-lang="es" href="../#contato" style="display:none;">Contacto</a>
 <!-- Política de privacidade / Privacy policy -->
 <a data-lang="pt" href="#">Política de privacidade</a>
 <a data-lang="en" href="#" style="display:none;">Privacy policy</a>
@@ -1171,7 +1209,8 @@ header .logo-text-sub{
 </footer>
 <script>
   // Ano no footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
   // Toggle mobile nav
   const nav = document.getElementById("main-nav");
@@ -1182,7 +1221,7 @@ header .logo-text-sub{
 
   // Switch de idioma
   const langButtons = document.querySelectorAll(".lang-btn");
-  const langBlocks = document.querySelectorAll("[data-lang]");
+  const langBlocks = document.querySelectorAll("[data-lang]:not(.lang-btn)");
 
   langButtons.forEach((btn) => {
     btn.addEventListener("click", () => {

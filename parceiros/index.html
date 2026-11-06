@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<link rel="icon" type="image/jpeg" href="favicon.jpeg"/>
+<link rel="icon" type="image/jpeg" href="../favicon.jpeg"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AVTOMATA – Home Automation &amp; Security</title>
 <style>
@@ -11,31 +11,31 @@
 /* ===== Fontes locais ===== */
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2.ttf") format("truetype");
+  src: url("../fonts/Justv2.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv2i.ttf") format("truetype");
+  src: url("../fonts/Justv2i.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22.ttf") format("truetype");
+  src: url("../fonts/Justv22.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Justinian";
-  src: url("fonts/Justv22i.ttf") format("truetype");
+  src: url("../fonts/Justv22i.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Roboto Condensed Thin";
-  src: url("fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+  src: url("../fonts/Roboto_Condensed-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
@@ -70,11 +70,19 @@
     }
 
     body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
       font-family: var(--font-sans);
       background: var(--color-bg);
       color: var(--color-graphite);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1 0 auto;
     }
 
     img {
@@ -566,21 +574,34 @@
       border-radius: var(--radius-xl);
       padding: 1.8rem 1.6rem;
       box-shadow: var(--shadow-subtle);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem 2.4rem;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 1rem;
       font-size: 0.85rem;
       color: #6a6e73;
     }
 
     .partner-pill {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px dashed rgba(0, 0, 0, 0.12);
-      background: #fafafa;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 112px;
+      padding: 0.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+    }
+
+    .partner-pill img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .partner-note {
+      grid-column: 1 / -1;
+      text-align: center;
     }
 
     /* ================================
@@ -734,6 +755,7 @@
        ================================ */
 
     footer {
+      flex-shrink: 0;
       margin-top: 3rem;
       padding: 1.8rem 0 2.2rem;
       background: #111316;
@@ -979,24 +1001,24 @@ header .logo-text-sub{
 <div class="container">
 <nav class="nav" id="main-nav">
 <div class="nav-left">
-<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="img/logo.png"/></div>
+<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="../img/logo.png"/></div>
 <div>
 <div class="logo-text-main">AVTOMATA</div>
 <div class="logo-text-sub">HOME AUTOMATION &amp; SECURITY</div>
 </div>
 </div>
 <div class="nav-center">
-<a href="evolucao.html">Evolução</a>
-<a href="quem-somos.html">Quem somos</a>
-<a href="solucoes.html">Soluções</a>
-<a href="parceiros.html">Parceiros</a>
-<a href="beneficios.html">Benefícios</a>
-<a href="diferencial.html">Diferencial</a>
-<a href="index.html#contato">Fale Conosco</a>
+<a href="../evolucao/">Evolução</a>
+<a href="../quem-somos/">Quem somos</a>
+<a href="../solucoes/">Soluções</a>
+<a href="../parceiros/">Parceiros</a>
+<a href="../beneficios/">Benefícios</a>
+<a href="../diferencial/">Diferencial</a>
+<a href="../#contato">Fale Conosco</a>
 </div>
 <div class="nav-right">
 <div class="nav-cta">
-<a class="btn btn-primary" href="index.html#contato">Solicitar projeto</a>
+<a class="btn btn-primary" href="../#contato">Solicitar projeto</a>
 </div>
 </div>
 <button aria-label="Abrir menu" class="nav-toggle" id="nav-toggle">
@@ -1053,24 +1075,23 @@ header .logo-text-sub{
 </p>
 </div>
 <div class="partners-strip">
-<!-- Nomes de marca podem ficar iguais em todos os idiomas -->
-<span class="partner-pill">Crestron</span>
-<span class="partner-pill">Control4</span>
-<span class="partner-pill">Lutron</span>
-<span class="partner-pill">Philips Hue</span>
-<span class="partner-pill">Aqara</span>
-<span class="partner-pill">Sonoff</span>
-<span class="partner-pill">Yale</span>
-<span class="partner-pill">Hikvision</span>
-<span class="partner-pill">Dahua</span>
-<span class="partner-pill">Sonos</span>
-<span class="partner-pill">Fibaro</span>
-<span class="partner-pill">Schneider</span>
-<span class="partner-pill">Siemens</span>
-<span class="partner-pill">Tuya</span>
-<span class="partner-pill" data-lang="pt">Outros parceiros locais</span>
-<span class="partner-pill" data-lang="en" style="display:none;">Other local partners</span>
-<span class="partner-pill" data-lang="es" style="display:none;">Otros socios locales</span>
+<span class="partner-pill"><img src="../img/Creston.jpg" alt="Crestron" width="1478" height="798" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Control4.jpg" alt="Control4" width="1050" height="450" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Lutron.png" alt="Lutron" width="600" height="600" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Philips Hue.jpg" alt="Philips Hue" width="1200" height="1200" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Aqara.jpg" alt="Aqara" width="2048" height="2048" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Sonoff.png" alt="Sonoff" width="3429" height="1000" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Yale Home.webp" alt="Yale" width="1280" height="1258" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Hikvision.jpg" alt="Hikvision" width="600" height="600" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Dahua Technology.jpg" alt="Dahua" width="1417" height="850" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Sonos.png" alt="Sonos" width="600" height="600" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Fibaro.png" alt="Fibaro" width="600" height="600" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Schneider Electric.png" alt="Schneider" width="2400" height="2400" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Siemens.jpg" alt="Siemens" width="5291" height="843" loading="lazy" decoding="async"/></span>
+<span class="partner-pill"><img src="../img/Tuya.jpg" alt="Tuya" width="400" height="400" loading="lazy" decoding="async"/></span>
+<span class="partner-note" data-lang="pt">Outros parceiros locais</span>
+<span class="partner-note" data-lang="en" style="display:none;">Other local partners</span>
+<span class="partner-note" data-lang="es" style="display:none;">Otros socios locales</span>
 </div>
 </div>
 </section>
@@ -1093,9 +1114,9 @@ header .logo-text-sub{
 <!-- Estrutura de idioma já pronta; por padrão PT ativo.
                  Para ativar EN/ES você pode usar um pequeno script
                  e duplicar o conteúdo com data-lang="en"/"es". -->
-<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="img/flag-br.png"/></button>
-<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="img/flag-uk.png"/></button>
-<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="img/flag-es.png"/></button>
+<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="../img/flag-br.png"/></button>
+<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="../img/flag-uk.png"/></button>
+<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="../img/flag-es.png"/></button>
 </div>
 <!-- Texto de direitos -->
 <div>
@@ -1106,17 +1127,17 @@ header .logo-text-sub{
 <!-- Links -->
 <div class="footer-links">
 <!-- Início / Home -->
-<a data-lang="pt" href="index.html#inicio">Início</a>
-<a data-lang="en" href="index.html#inicio" style="display:none;">Home</a>
-<a data-lang="es" href="index.html#inicio" style="display:none;">Inicio</a>
+<a data-lang="pt" href="../#inicio">Início</a>
+<a data-lang="en" href="../#inicio" style="display:none;">Home</a>
+<a data-lang="es" href="../#inicio" style="display:none;">Inicio</a>
 <!-- Soluções / Solutions -->
-<a data-lang="pt" href="solucoes.html">Soluções</a>
-<a data-lang="en" href="solucoes.html" style="display:none;">Solutions</a>
-<a data-lang="es" href="solucoes.html" style="display:none;">Soluciones</a>
+<a data-lang="pt" href="../solucoes/">Soluções</a>
+<a data-lang="en" href="../solucoes/" style="display:none;">Solutions</a>
+<a data-lang="es" href="../solucoes/" style="display:none;">Soluciones</a>
 <!-- Contato / Contact -->
-<a data-lang="pt" href="index.html#contato">Contato</a>
-<a data-lang="en" href="index.html#contato" style="display:none;">Contact</a>
-<a data-lang="es" href="index.html#contato" style="display:none;">Contacto</a>
+<a data-lang="pt" href="../#contato">Contato</a>
+<a data-lang="en" href="../#contato" style="display:none;">Contact</a>
+<a data-lang="es" href="../#contato" style="display:none;">Contacto</a>
 <!-- Política de privacidade / Privacy policy -->
 <a data-lang="pt" href="#">Política de privacidade</a>
 <a data-lang="en" href="#" style="display:none;">Privacy policy</a>
@@ -1133,7 +1154,8 @@ header .logo-text-sub{
 </footer>
 <script>
   // Ano no footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
   // Toggle mobile nav
   const nav = document.getElementById("main-nav");
@@ -1144,7 +1166,7 @@ header .logo-text-sub{
 
   // Switch de idioma
   const langButtons = document.querySelectorAll(".lang-btn");
-  const langBlocks = document.querySelectorAll("[data-lang]");
+  const langBlocks = document.querySelectorAll("[data-lang]:not(.lang-btn)");
 
   langButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
