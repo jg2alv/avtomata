@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVTOMATA – Home Automation &amp; Security</title>
+<style>
+
+/* ===== Fontes locais ===== */
+@font-face {
+  font-family: "Justinian";
+  src: url("fonts/Justv2.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Justinian";
+  src: url("fonts/Justv2i.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Justinian";
+  src: url("fonts/Justv22.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Justinian";
+  src: url("fonts/Justv22i.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto Condensed Thin";
+  src: url("fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+/* ================================
+       DESIGN SYSTEM AVTOMATA – CORE
+       ================================ */
+
+    :root {
+      --color-petroleum: #194a57;
+      --color-graphite: #2b2b2d;
+      --color-gold: #d9b166;
+      --color-white: #ffffff;
+      --color-bg: #f5f6f7;
+
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --shadow-subtle: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+      --container-width: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-graphite);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ================================
+       COMPONENTES BÁSICOS
+       ================================ */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-petroleum);
+      color: var(--color-white);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+      background: #135262;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-petroleum);
+      border-color: var(--color-gold);
+    }
+
+    .btn-outline:hover {
+      background: rgba(217, 177, 102, 0.08);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(25, 74, 87, 0.07);
+      color: var(--color-petroleum);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-petroleum);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      max-width: 540px;
+      color: #55575a;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    /* ================================
+       HEADER / NAV
+       ================================ */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(245, 246, 247, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-symbol {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(
+          circle at 20% 20%,
+          rgba(217, 177, 102, 0.8),
+          transparent 55%
+        ),
+        linear-gradient(145deg, #15363f, #245b69);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    
+
+    .logo-house::before {
+      content: "";
+      position: absolute;
+      inset: -9px 3px auto 3px;
+      border-left: 2px solid rgba(255, 255, 255, 0.9);
+      border-right: 2px solid rgba(255, 255, 255, 0.9);
+      border-top: 2px solid rgba(255, 255, 255, 0.9);
+      transform: skewY(-10deg);
+      border-bottom: none;
+    }
+
+    .logo-text-main {
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #777a7e;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-center a {
+      color: #4c4f53;
+      font-weight: 500;
+    }
+
+    .nav-center a:hover {
+      color: var(--color-petroleum);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(43, 43, 45, 0.06);
+      padding: 0.12rem;
+      gap: 0.12rem;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .lang-btn.active {
+      background: var(--color-white);
+      color: var(--color-petroleum);
+      font-weight: 600;
+      box-shadow: 0 0 0 1px rgba(25, 74, 87, 0.18);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: #333;
+      margin: 4px 0;
+      transition: 0.2s;
+    }
+
+    /* ================================
+       HERO
+       ================================ */
+
+    .hero {
+      padding: 3.2rem 0 4.2rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #55575a;
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #6b6e72;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #f0f4f5);
+      border-radius: 32px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-house {
+      border-radius: 24px;
+      background: radial-gradient(circle at 10% 10%, #ffe2a8, transparent 55%),
+        linear-gradient(135deg, #16252b, #28434d);
+      height: 220px;
+      margin-bottom: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-house::before {
+      content: "";
+      position: absolute;
+      inset: 15% 6% auto 6%;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.35), transparent 70%);
+    }
+
+    .hero-house::after {
+      content: "";
+      position: absolute;
+      inset: auto 8% 10% 8%;
+      border-radius: 18px;
+      background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.16),
+          rgba(255, 255, 255, 0)
+        ),
+        radial-gradient(circle at 10% 10%, #f4d79a, transparent 55%);
+      opacity: 0.8;
+    }
+
+    .hero-pill {
+      position: absolute;
+      inset: auto 10% 16% 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--color-white);
+      font-size: 0.78rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-pill span {
+      opacity: 0.9;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-metric-label {
+      font-size: 0.75rem;
+      color: #707479;
+    }
+
+    .hero-metric-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-petroleum);
+    }
+
+    /* ================================
+       EVOLUÇÃO
+       ================================ */
+
+    .timeline {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .timeline-text p {
+      margin-bottom: 1rem;
+      color: #4f5256;
+      font-size: 0.96rem;
+    }
+
+    .timeline-items {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .timeline-item {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-subtle);
+      border-left: 3px solid var(--color-petroleum);
+    }
+
+    .timeline-item h4 {
+      font-size: 0.96rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-item p {
+      font-size: 0.85rem;
+      color: #5b5e63;
+    }
+
+    /* ================================
+       SOLUÇÕES
+       ================================ */
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .solution-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 150px;
+    }
+
+    .solution-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 14px;
+      background: rgba(217, 177, 102, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .solution-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .solution-desc {
+      font-size: 0.85rem;
+      color: #5b5e63;
+    }
+
+    .solution-tags {
+      margin-top: auto;
+      font-size: 0.78rem;
+      color: #777b80;
+    }
+
+    .solutions-integrations {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #54575a;
+    }
+
+    .solutions-integrations span {
+      font-weight: 600;
+      color: var(--color-petroleum);
+    }
+
+    /* ================================
+       PARCEIROS
+       ================================ */
+
+    .partners-strip {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 1.8rem 1.6rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem 2.4rem;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #6a6e73;
+    }
+
+    .partner-pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(0, 0, 0, 0.12);
+      background: #fafafa;
+      font-weight: 500;
+    }
+
+    /* ================================
+       BENEFÍCIOS
+       ================================ */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .benefit-card {
+      background: linear-gradient(145deg, #ffffff, #f1f3f5);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .benefit-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-desc {
+      font-size: 0.85rem;
+      color: #5a5d62;
+    }
+
+    /* ================================
+       DIFERENCIAL
+       ================================ */
+
+    .differential {
+      background: radial-gradient(circle at 0 0, #f2e3c1, transparent 55%),
+        linear-gradient(145deg, #1d2529, #101417);
+      color: var(--color-white);
+      border-radius: 36px;
+      padding: 2.4rem 2.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.3rem;
+      align-items: center;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .differential h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .differential p {
+      font-size: 0.9rem;
+      color: #f2f3f5;
+      margin-bottom: 0.9rem;
+    }
+
+    .differential-list {
+      font-size: 0.9rem;
+      color: #dde0e6;
+      margin-bottom: 1rem;
+    }
+
+    .differential-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .differential-side {
+      font-size: 0.85rem;
+      color: #d0d4dc;
+    }
+
+    /* ================================
+       CONTATO
+       ================================ */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 1.8rem 1.7rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .field-group {
+      margin-bottom: 1rem;
+    }
+
+    .field-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .field-input,
+    .field-textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      resize: vertical;
+      min-height: 46px;
+    }
+
+    .field-textarea {
+      min-height: 110px;
+    }
+
+    .field-input:focus,
+    .field-textarea:focus {
+      outline: none;
+      border-color: var(--color-petroleum);
+      box-shadow: 0 0 0 1px rgba(25, 74, 87, 0.25);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.85rem;
+      color: #5d6064;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: #55585c;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info strong {
+      color: var(--color-petroleum);
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.8rem 0 2.2rem;
+      background: #111316;
+      color: #b4b7bc;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #d2d5da;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+
+    /* ================================
+       RESPONSIVO
+       ================================ */
+
+    @media (max-width: 960px) {
+      .nav-center {
+        display: none;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-mobile-open .nav-center,
+      .nav-mobile-open .nav-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        margin-top: 0.4rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .timeline {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .solutions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .differential {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .solutions-grid,
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section {
+        padding: 3.3rem 0;
+      }
+
+      .differential {
+        padding: 1.8rem 1.4rem;
+        border-radius: 26px;
+      }
+
+      .hero-card {
+        border-radius: 24px;
+      }
+
+      .hero-house {
+        border-radius: 20px;
+      }
+    }
+  
+/* ===== OVERRIDES (mantidos no final para não serem sobrescritos) ===== */
+header .logo-text-main{
+  font-family: "Justinian", serif !important;
+  color: #D9B166 !important;
+}
+header .logo-text-sub{
+  font-family: "Roboto Condensed Thin", "Roboto Condensed", Arial, sans-serif !important;
+  color: #D9B166 !important;
+}
+
+
+/* ===== OVERRIDES: símbolo da marca ===== */
+header .logo-symbol{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .logo-symbol .logo-img{
+  display: block;
+  width: 40px;           /* mantém proporção semelhante ao ícone anterior */
+  height: 40px;
+  object-fit: contain;
+}
+@media (max-width: 768px){
+  header .logo-symbol .logo-img{
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+/* ===== OVERRIDES: logo imagem circular ===== */
+header .logo-symbol .logo-img{
+  width: 40px !important;
+  height: 40px !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: contain;
+  background: transparent;
+}
+@media (max-width: 768px){
+  header .logo-symbol .logo-img{
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+
+/* ===== OVERRIDES: idioma no footer ===== */
+footer .lang-switcher{
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+footer .lang-btn{
+  cursor: pointer;
+}
+@media (max-width: 960px){
+  /* garante que o seletor de idioma continue visível no mobile */
+  footer .lang-switcher{ 
+    width: auto;
+  }
+}
+
+
+/* ===== OVERRIDES: bandeiras no seletor de idioma ===== */
+footer .lang-switcher .lang-btn{
+  padding: 2px;
+  border-radius: 999px;
+  line-height: 0;
+}
+footer .lang-switcher .flag-icon{
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+footer .lang-switcher .lang-btn.active{
+  outline: 2px solid #D9B166;
+  outline-offset: 2px;
+}
+@media (max-width: 768px){
+  footer .lang-switcher .flag-icon{
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+/* ===== OVERRIDES: ícone Instagram no footer ===== */
+footer .footer-links .social-link{
+  display: inline-flex;
+  align-items: center;
+}
+footer .footer-links .instagram-icon{
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+
+/* ===== OVERRIDES: tagline em minúsculas ===== */
+header .logo-text-sub{
+  text-transform: lowercase !important;
+}
+
+
+/* ===== OVERRIDES: tagline com melhor contraste (Opção D) ===== */
+header .logo-text-sub{
+  color: #B89A4F !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+
+
+/* ===== OVERRIDES: tagline em negrito ===== */
+header .logo-text-sub{
+  font-weight: 700 !important;
+}
+
+
+/* ===== DIFERENCIAL: section-kicker com contraste ===== */
+#diferencial .section-kicker{
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+</style>
+</head>
+<body>
+<!-- ================================
+       HEADER
+       ================================ -->
+<header>
+<div class="container">
+<nav class="nav" id="main-nav">
+<div class="nav-left">
+<div class="logo-symbol"><img alt="AVTOMATA" class="logo-img" src="img/logo.png"/></div>
+<div>
+<div class="logo-text-main">AVTOMATA</div>
+<div class="logo-text-sub">HOME AUTOMATION &amp; SECURITY</div>
+</div>
+</div>
+<div class="nav-center">
+<a href="evolucao.html">Evolução</a>
+<a href="quem-somos.html">Quem somos</a>
+<a href="solucoes.html">Soluções</a>
+<a href="parceiros.html">Parceiros</a>
+<a href="beneficios.html">Benefícios</a>
+<a href="diferencial.html">Diferencial</a>
+<a href="index.html#contato">Fale Conosco</a>
+</div>
+<div class="nav-right">
+<div class="nav-cta">
+<a class="btn btn-primary" href="index.html#contato">Solicitar projeto</a>
+</div>
+</div>
+<button aria-label="Abrir menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</nav>
+</div>
+</header>
+<!-- ================================
+       HERO
+       ================================ -->
+<main>
+<!-- ================================
+         EVOLUÇÃO
+         ================================ -->
+<!-- ================================
+         QUEM SOMOS
+         ================================ -->
+<!-- ================================
+         SOLUÇÕES
+         ================================ -->
+<!-- ================================
+         PARCEIROS
+         ================================ -->
+<!-- ================================
+         BENEFÍCIOS
+         ================================ -->
+<!-- ================================
+         DIFERENCIAL
+         ================================ -->
+<section class="section" id="diferencial">
+<div class="container">
+<div class="differential">
+<div>
+<div class="section-kicker" data-lang="pt" style="color:#f2d9a2;">Diferencial AVTOMATA</div>
+<div class="section-kicker" data-lang="en" style="color:#f2d9a2; display:none;">AVTOMATA advantage</div>
+<div class="section-kicker" data-lang="es" style="color:#f2d9a2; display:none;">Diferencial AVTOMATA</div>
+<h3 data-lang="pt">Projetos em CAD &amp; BIM, do conceito à entrega.</h3>
+<h3 data-lang="en" style="display:none;">CAD &amp; BIM projects, from concept to delivery.</h3>
+<h3 data-lang="es" style="display:none;">Proyectos en CAD y BIM, del concepto a la entrega.</h3>
+<p data-lang="pt">
+          Não trabalhamos com “encaixar equipamentos” na obra pronta. Atuamos desde o início do projeto,
+          em parceria com arquitetos e engenheiros, para que a automação faça parte da essência da residência.
+        </p>
+<p data-lang="en" style="display:none;">
+          We don’t simply “fit equipment” into a finished project. We work from the very beginning,
+          in partnership with architects and engineers, so that automation becomes part of the home’s core design.
+        </p>
+<p data-lang="es" style="display:none;">
+          No trabajamos solo “encajando equipos” en la obra terminada. Actuamos desde el inicio del proyecto,
+          en colaboración con arquitectos e ingenieros, para que la automatización forme parte de la esencia de la vivienda.
+        </p>
+<ul class="differential-list">
+<li data-lang="pt">Planta técnica com pontos de automação detalhados</li>
+<li data-lang="en" style="display:none;">Technical drawings with detailed automation points</li>
+<li data-lang="es" style="display:none;">Planos técnicos con puntos de automatización detallados</li>
+<li data-lang="pt">Compatibilização com projetos elétricos e luminotécnicos</li>
+<li data-lang="en" style="display:none;">Coordination with electrical and lighting projects</li>
+<li data-lang="es" style="display:none;">Compatibilización con proyectos eléctricos y de iluminación</li>
+<li data-lang="pt">Simulação de cenas e rotinas antes da instalação</li>
+<li data-lang="en" style="display:none;">Simulation of scenes and routines before installation</li>
+<li data-lang="es" style="display:none;">Simulación de escenas y rutinas antes de la instalación</li>
+<li data-lang="pt">Acompanhamento em campo durante a execução da obra</li>
+<li data-lang="en" style="display:none;">On-site supervision during construction</li>
+<li data-lang="es" style="display:none;">Acompañamiento en obra durante la ejecución</li>
+<li data-lang="pt">Documentação final para manutenção e futuros upgrades</li>
+<li data-lang="en" style="display:none;">Final documentation for maintenance and future upgrades</li>
+<li data-lang="es" style="display:none;">Documentación final para mantenimiento y futuras ampliaciones</li>
+</ul>
+<a class="btn btn-outline" data-lang="pt" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2;">
+          Agendar conversa técnica
+        </a>
+<a class="btn btn-outline" data-lang="en" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2; display:none;">
+          Schedule a technical call
+        </a>
+<a class="btn btn-outline" data-lang="es" href="index.html#contato" style="border-color:#f2d9a2; color:#f2d9a2; display:none;">
+          Agendar conversación técnica
+        </a>
+</div>
+<div class="differential-side">
+<p data-lang="pt" style="margin-bottom:0.6rem;">
+<strong>Para arquitetos e engenheiros</strong><br/>
+          Somos parceiros na concepção de projetos diferenciados, trazendo soluções de automação que
+          valorizam o conceito arquitetônico, sem comprometer estética ou prazos.
+        </p>
+<p data-lang="en" style="margin-bottom:0.6rem; display:none;">
+<strong>For architects and engineers</strong><br/>
+          We are partners in the creation of distinctive projects, bringing automation solutions that
+          enhance the architectural concept without compromising aesthetics or deadlines.
+        </p>
+<p data-lang="es" style="margin-bottom:0.6rem; display:none;">
+<strong>Para arquitectos e ingenieros</strong><br/>
+          Somos socios en la concepción de proyectos diferenciados, aportando soluciones de automatización
+          que valorizan el concepto arquitectónico sin comprometer la estética ni los plazos.
+        </p>
+<p data-lang="pt">
+<strong>Para proprietários</strong><br/>
+          Entregamos uma casa que responde ao seu estilo de vida, com tecnologia que trabalha em silêncio,
+          24 horas por dia, para garantir conforto, segurança e eficiência.
+        </p>
+<p data-lang="en" style="display:none;">
+<strong>For homeowners</strong><br/>
+          We deliver a home that responds to your lifestyle, with technology that works quietly
+          24 hours a day to ensure comfort, security and efficiency.
+        </p>
+<p data-lang="es" style="display:none;">
+<strong>Para propietarios</strong><br/>
+          Entregamos un hogar que responde a tu estilo de vida, con tecnología que trabaja en silencio
+          las 24 horas para garantizar confort, seguridad y eficiencia.
+        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================
+         FALE CONOSCO
+         ================================ -->
+</main>
+<!-- ================================
+       FOOTER
+       ================================ -->
+<footer>
+<div class="container">
+<div class="footer-inner"><div class="lang-switcher">
+<!-- Estrutura de idioma já pronta; por padrão PT ativo.
+                 Para ativar EN/ES você pode usar um pequeno script
+                 e duplicar o conteúdo com data-lang="en"/"es". -->
+<button class="lang-btn active" data-lang="pt"><img alt="Português" class="flag-icon" src="img/flag-br.png"/></button>
+<button class="lang-btn" data-lang="en"><img alt="English" class="flag-icon" src="img/flag-uk.png"/></button>
+<button class="lang-btn" data-lang="es"><img alt="Español" class="flag-icon" src="img/flag-es.png"/></button>
+</div>
+<!-- Texto de direitos -->
+<div>
+<span data-lang="pt">home automation &amp; security</span>
+<span data-lang="en" style="display:none;">home automation &amp; security</span>
+<span data-lang="es" style="display:none;">home automation &amp; security</span>
+</div>
+<!-- Links -->
+<div class="footer-links">
+<!-- Início / Home -->
+<a data-lang="pt" href="index.html#inicio">Início</a>
+<a data-lang="en" href="index.html#inicio" style="display:none;">Home</a>
+<a data-lang="es" href="index.html#inicio" style="display:none;">Inicio</a>
+<!-- Soluções / Solutions -->
+<a data-lang="pt" href="solucoes.html">Soluções</a>
+<a data-lang="en" href="solucoes.html" style="display:none;">Solutions</a>
+<a data-lang="es" href="solucoes.html" style="display:none;">Soluciones</a>
+<!-- Contato / Contact -->
+<a data-lang="pt" href="index.html#contato">Contato</a>
+<a data-lang="en" href="index.html#contato" style="display:none;">Contact</a>
+<a data-lang="es" href="index.html#contato" style="display:none;">Contacto</a>
+<!-- Política de privacidade / Privacy policy -->
+<a data-lang="pt" href="#">Política de privacidade</a>
+<a data-lang="en" href="#" style="display:none;">Privacy policy</a>
+<a data-lang="es" href="#" style="display:none;">Política de privacidad</a>
+<a aria-label="Instagram AVTOMATA" class="social-link" href="https://www.instagram.com/avtomata.oficial/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="instagram-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5z"></path>
+<path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"></path>
+<circle cx="17.2" cy="6.8" r="1"></circle>
+</svg>
+</a></div>
+</div>
+</div>
+</footer>
+<script>
+  // Ano no footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Toggle mobile nav
+  const nav = document.getElementById("main-nav");
+  const navToggle = document.getElementById("nav-toggle");
+  navToggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-mobile-open");
+  });
+
+  // Switch de idioma
+  const langButtons = document.querySelectorAll(".lang-btn");
+  const langBlocks = document.querySelectorAll("[data-lang]");
+
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-lang");
+
+      // estado visual dos botões
+      langButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // mostra/esconde blocos por idioma
+      langBlocks.forEach((el) => {
+        el.style.display = el.getAttribute("data-lang") === target ? "" : "none";
+      });
+    });
+  });
+</script>
+</body>
+</html>
